@@ -1,4 +1,5 @@
 package org.example.learn;
+import java.util.ArrayList;
 
 public class Player {
 	private String handleName;
@@ -6,6 +7,7 @@ public class Player {
 	private int level;
 	private int score;
 	private Weapon weapon;
+	private ArrayList<InventoryItem> inventoryitems;
 	
 	public Player() {
 		this.handleName = "Unknown Player";
@@ -13,6 +15,7 @@ public class Player {
 		this.level = 1;
 		this.score = 0;
 		setDefaultWeapon();
+		inventoryitems = new ArrayList<InventoryItem>();
 	}
 
 	public Player(String name) {
@@ -73,8 +76,26 @@ public class Player {
 	public void setScore(int score) {
 		this.score = score;
 	}
+
+	public ArrayList<InventoryItem> getInventoryitems() {
+		return inventoryitems;
+	}
+
+	//public void setInventoryitems(ArrayList<InventoryItem> inventoryitems) {
+	//	this.inventoryitems = inventoryitems;
+	//}
 	
+	public void addInventoryItem(InventoryItem inventoryItem) {
+		inventoryitems.add(inventoryItem);
+	}
 	
+	public boolean dropInventoyrItem(InventoryItem inventoryItem)  {
+		if(this.inventoryitems.contains(inventoryItem)){
+			inventoryitems.remove(inventoryItem);
+			return true;}
+		return false;
+		
+	}
 	
 	
 }

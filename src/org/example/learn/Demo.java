@@ -1,5 +1,7 @@
 package org.example.learn;
 
+import java.util.ArrayList;
+
 public class Demo {
 
 	public static void main(String[] args) {
@@ -14,6 +16,20 @@ public class Demo {
 		tim.setWeapon(myAxe);
 		
 		System.out.println(tim.getWeapon().getName());
+		InventoryItem redPotion = new InventoryItem(ItemType.POTION, "Red Potion");
+		tim.addInventoryItem(redPotion);
+		
+		tim.addInventoryItem(new InventoryItem(ItemType.ARMOR, "+3 Chest Amor"));
+		
+		boolean wasDeleted = tim.dropInventoyrItem(redPotion);
+		System.out.println(wasDeleted);
+		
+		ArrayList<InventoryItem> allItems = tim.getInventoryitems();
+		
+		for (InventoryItem item : allItems) {
+			System.out.println(item.getName());
+			
+		}
 		
 	}
 
